@@ -1,0 +1,36 @@
+TIKI
+setup
+{
+	scale 1.300000			// Set default scale to 16/30.5 since world is in 16 units per foot and model is in cm's
+	path models/milkshape/s76-camo
+	skelmodel s76-camo.skb
+      surface s76props shader rudolph-s5_prop
+      surface s76black shaderrudolph-s5_noir
+      surface s76metal shader rudolph-s5_cchrome
+      surface s76white shader rudolph-s5_blanc
+      surface s76glass_(sub) shader rudolph-s5_glass
+      surface s76glass_(sub) shader rudolph-s5_glass
+      surface s76hull_g_(sub) shader rudolph-s5-gauche
+      surface s76hull_d_(sub) shader rudolph-s5-droite
+      surface s76props shader rudolph-s5_prop
+}
+init
+{
+	server
+	{
+	//SoundSet "helico_snd"
+	loopsound helico_snd
+	mass 4000
+	}
+	client
+	{
+	}
+}
+animations
+{
+
+	idle     s76-camo.skc
+}
+
+/*QUAKED milkshape_rudolph-s5 (0.5 0.0 0.5) (-406 -287 1) (361 287 230)
+*/

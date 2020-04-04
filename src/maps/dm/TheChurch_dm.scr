@@ -1,0 +1,40 @@
+// The_Church
+// ARCHITECTURE: De ViTo
+// SCRIPTING: De ViTo
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "The_Church"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" ""
+setcvar "g_obj_axistext1" "By De ViTo"
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+setcvar "g_scoreboardpic" "dmloadingTheChurch"
+
+	// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+
+	exec global/exploder.scr
+		
+	level waitTill prespawn
+
+	//*** Precache Dm Stuff
+	exec global/DMprecache.scr
+      
+	//$world farplane 4000
+	//$world farplane_color (.333 .333 .329
+      //level.music = mp_gewitter_dm	
+      //exec global/dmprecache.scr mp_gewitter_dm
+      //exec global/shutter.scr
+      exec global/weather.scr
+      exec global/ambient.scr m3l3
+       
+
+ 
+	level waittill spawn
+
+
+        end

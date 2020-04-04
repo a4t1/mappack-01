@@ -1,0 +1,212 @@
+// CMC CASTLE
+// ARCHITECTURE: GEN COBRA
+// SCRIPTING: GEN COBRA
+
+main: 
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "CMC CASTLE"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" "www.cmcmohdepot.com"
+setcvar "g_obj_axistext1" "GEN COBRA"
+setcvar "g_obj_axistext2" "HAPPY"
+setcvar "g_obj_axistext3" "HALLOWEEN!"
+
+setcvar "g_scoreboardpic" "textures/cmc_castle/scary1.jpg"
+
+
+local.master = spawn ScriptMaster
+local.master aliascache thunder sound/cmc/thunder.mp3 soundparms 2.5 0.5 0.0 0.0 500 1000  auto loaded maps "dm moh obj train"
+local.master aliascache ocean sound/cmc/ocean.mp3 soundparms 2.5 0.5 0.0 0.0 400 800  auto loaded maps "dm moh obj train"
+local.master aliascache voices sound/cmc/voices.mp3 soundparms 2.5 0.5 0.0 0.0 300 700  auto loaded maps "dm moh obj train"
+local.master aliascache laugh1 sound/cmc/laugh1.mp3 soundparms 1.5 0.5 0.0 0.0 200 600  auto loaded maps "dm moh obj train"
+local.master aliascache van sound/cmc/van.mp3 soundparms 2.5 0.5 0.0 0.0 150 500  auto loaded maps "dm moh obj train"
+local.master aliascache haunted sound/cmc/haunted.mp3 soundparms 2.5 0.5 0.0 0.0 100 400  auto loaded maps "dm moh obj train"
+level waittill prespawn
+exec global/DMprecache.scr
+exec global/door_locked.scr::lock
+level.script = maps/dm/cmc_castle.scr
+exec global/ambient.scr cmc_castle
+exec global/weather.scr 
+
+//FOG
+level.farplane = 10000
+level.farplanecolor = (.1 .1 .1)
+$world farplane 10000	
+$world farplane_color (.1 .1 .1)
+$world farplane_cull 0
+thread tigerdead
+thread panzerdead
+thread smokebirth1
+thread smokebirth2
+thread smokebirth3
+thread smokebirth4
+thread smokeship
+level waittill spawn
+
+thread ghost1_trigger
+thread trap
+thread chair1
+thread sound
+thread pain
+end
+sound:
+wait 4
+$ocean loopsound ocean
+wait 4
+$thunder loopsound thunder
+wait 4
+$haunted loopsound haunted
+wait 4
+$van loopsound van
+wait 4
+$laugh1 loopsound laugh1
+wait 4
+$voices loopsound voices
+end
+
+ghost1_trigger:
+		$ghost1_move waittill trigger
+		wait 0.5
+		thread ghost1
+			
+end
+
+ghost1:
+		wait 2
+		$ghost1 speed 160
+		$ghost1 moveto ghost1start		
+		$ghost1 loopsound haunted
+		$ghost1 waitmove
+		$ghost1 stoploopsound
+		wait 20
+                $ghost1 speed 190
+		$ghost1 moveto ghost1end			
+		$ghost1 loopsound haunted
+		$ghost1 waitmove
+		$ghost1 stoploopsound	
+		wait 3
+		thread ghost1_trigger
+end
+
+
+
+trap:
+
+		$trap1_move waittill trigger
+		wait 0.5
+		thread trap_move
+			
+end
+
+
+trap_move:
+		$trap1 speed 60
+		$trap1 moveto trap1_start		
+		$trap1 loopsound Crane_run
+		$trap1 waitmove
+		$trap1 stoploopsound
+		wait .4
+                $trap1 speed 200
+		$trap1 moveto trap1_end			
+		$trap1 loopsound Crane_run
+		$trap1 waitmove
+		$trap1 stoploopsound	
+		thread trap
+
+end
+
+chair1:
+
+		$chair_trigger waittill trigger
+		wait 0.5
+		thread chairmove
+			
+end
+
+
+chairmove:
+		$chair speed 35
+		$chair moveto move1		
+		$chair waitmove
+		wait 2
+                $chair speed 45
+		$chair moveto move2			
+		$chair waitmove
+		wait .4
+                $chair speed 45
+		$chair moveto move3			
+		$chair waitmove
+		wait 3
+		thread chair1
+
+end
+
+pain:
+          $hurtme volumedamage 25
+end
+
+tigerdead:
+local.fix1 = spawn script_model
+local.fix1 model "vehicles/panzer_iv_d.tik"
+// local.fix1 model "vehicles/kingtank_all_d.tik"
+local.fix1.origin = ( -1100 1138 -112 )
+local.fix1.angles = ( -5 -23 0.00 )
+local.fix1.scale = 1.0
+local.fix1 solid
+end
+
+panzerdead:
+local.fix1 = spawn script_model
+local.fix1 model "vehicles/panzer_iv_d.tik"
+local.fix1.origin = ( -1606 -1995 -122 )
+local.fix1.angles = ( -3 18 1 )
+local.fix1.scale = 1.0
+local.fix1 solid
+end
+
+smokebirth1:
+local.fix2 = spawn script_model
+local.fix2 model "emitters/ddaysmoke.tik"
+local.fix2.origin = ( -4000 -2000 -50 )
+local.fix2.angles = ( 10 0 0 )
+local.fix2.scale = 1.5
+local.fix2 solid
+end
+smokebirth2:
+local.fix2 = spawn script_model
+local.fix2 model "emitters/ddaysmoke.tik"
+local.fix2.origin = ( -4000 -1000 -50 )
+local.fix2.angles = ( 10 0 0 )
+local.fix2.scale = 1.5
+local.fix2 solid
+end
+smokebirth3:
+local.fix2 = spawn script_model
+local.fix2 model "emitters/ddaysmoke.tik"
+local.fix2.origin = ( -4000 0 -50 )
+local.fix2.angles = ( 10 0 0 )
+local.fix2.scale = 1.5
+local.fix2 solid
+end
+smokebirth4:
+local.fix2 = spawn script_model
+local.fix2 model "emitters/ddaysmoke.tik"
+local.fix2.origin = ( -4000 1000 -50 )
+local.fix2.angles = ( 10 0 0 )
+local.fix2.scale = 1.5
+local.fix2 solid
+end
+
+smokeship:
+local.fix2 = spawn script_model
+local.fix2 model "emitters/smoke_airstrike_crater.tik"
+local.fix2.origin = ( -3109 -748 -127 )
+local.fix2.angles = ( 15 0 0 )
+local.fix2.scale = 1
+local.fix2 solid
+end
+
+
+
+
+

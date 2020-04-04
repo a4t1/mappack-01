@@ -1,0 +1,6 @@
+aliascache thunder sound/cmc/thunder.mp3 soundparms 2.5 0.5 0.0 0.0 500 1000  auto loaded maps "dm moh obj train"
+aliascache ocean sound/cmc/ocean.mp3 soundparms 2.5 0.5 0.0 0.0 400 800  auto loaded maps "dm moh obj train"
+aliascache voices sound/cmc/voices.mp3 soundparms 2.5 0.5 0.0 0.0 300 700  auto loaded maps "dm moh obj train"
+aliascache laugh1 sound/cmc/laugh1.mp3 soundparms 1.5 0.5 0.0 0.0 200 600  auto loaded maps "dm moh obj train"
+aliascache van sound/cmc/van.mp3 soundparms 2.5 0.5 0.0 0.0 150 500  auto loaded maps "dm moh obj train"
+aliascache haunted sound/cmc/haunted.mp3 soundparms 2.5 0.5 0.0 0.0 100 400  auto loaded maps "dm moh obj train"

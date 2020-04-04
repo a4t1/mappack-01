@@ -1,0 +1,32 @@
+
+
+//ice_arena2
+// ARCHITECTURE: PKM
+// SCRIPTING: PKM
+// TEXTURES:PKM
+
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "Ice Arena 2"
+setcvar "g_obj_alliedtext2" "by PKM"
+setcvar "g_obj_alliedtext3" ""
+setcvar "g_obj_axistext1" "scripted for use"
+setcvar "g_obj_axistext2" "with snowcontest mod"
+setcvar "g_obj_axistext3" ""
+
+setcvar "g_scoreboardpic" "ice_arena2" // your score board picture
+
+level waittill prespawn
+
+exec global/DMprecache.scr
+
+exec global/ambient.scr arena_basemusic
+
+level.script = "maps/dm/ice_arena2.scr"
+
+level waittill spawn
+
+exec global/snowcontest.scr
+
+end

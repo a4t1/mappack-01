@@ -1,0 +1,22 @@
+menu "dm/Stalingrad-2" 640 481 NONE 0
+bgcolor 0 0 1 1 
+borderstyle NONE
+bgfill 0 0 0 1 
+fullscreen 1
+//vidmode 3
+//fadein 0.5
+virtualres 1
+postinclude ui/stalingrad-2.txt
+
+resource
+Label
+{
+name "Default"
+rect 0 0 512 512
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 1.00 1.00 1.00 0.00
+borderstyle "NONE"
+align centerx
+shader "stalingrad2"
+}
+end.

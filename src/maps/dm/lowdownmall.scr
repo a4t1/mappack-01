@@ -1,0 +1,45 @@
+
+
+//lowdownmall
+// ARCHITECTURE: PKM
+// SCRIPTING: PKM
+// TEXTURES:PKM
+
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "low down mall"
+setcvar "g_obj_alliedtext2" "BY PKM"
+setcvar "g_obj_alliedtext3" "MRU Xmas Mod Entry"
+setcvar "g_obj_axistext1" "2007"
+setcvar "g_obj_axistext2" ""
+setcvar "g_obj_axistext3" ""
+
+setcvar "g_scoreboardpic" "lowdown_mall" // your score board picture
+
+
+level waittill prespawn
+exec global/DMprecache.scr
+level.script = "maps/dm/lowdownmall.scr"
+exec global/ambient.scr lowdownmall
+
+$speaker_pkm loopsound snd_santacoptor1
+thread 
+
+local.master = spawn Scriptmaster
+local.master aliascache snd_santacoptor1 sound/santa_chopper/santacoptor1.wav soundparms 2.3 0.0 1.0 0.0 800 3000 auto loaded maps "obj dm"
+
+level waittill spawn
+
+wait 2
+
+for(local.playernum = 1; local.playernum <= $player.size; local.playernum++)
+{
+$player[local.playernum] stufftext ""
+}
+
+$speaker_choppersanta loopsound snd_santacoptor1 
+
+exec global/snowcontest.scr
+
+end

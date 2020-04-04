@@ -1,0 +1,14 @@
+path sound/amb_stereo
+
+normal Amb_Stalingrad-2.mp3 // Player Start
+
+aux1 Amb_Stalingrad-2.mp3 // Exterior - town exterior
+
+!normal volume 1
+!normal loop
+
+!aux1 volume 1
+!aux1 loop
+
+
+

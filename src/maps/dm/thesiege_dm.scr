@@ -1,0 +1,91 @@
+// The Siege by Dagroov and Deadly Mongose
+// Thnx to AIC for scripting the main obj =)
+
+main:
+
+setcvar "g_obj_alliedtext1" "The Siege"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" "By Dagroov"
+setcvar "g_obj_axistext1" "& Deadly Mong."
+setcvar "g_obj_axistext2" "planetmedalofhonor"
+setcvar "g_obj_axistext3" ".com/dagroovslair"
+
+setcvar "g_scoreboardpic" "loadingthesiege"
+	
+	level waitTill prespawn		
+
+	//*** Precache Dm Stuff
+	exec global/DMprecache.scr
+
+	level.script = maps/dm/thesiege_dm.scr
+	exec global/ambient.scr m3l2
+	exec global/shutter.scr
+
+	//exec global/ambient.scr mohdm2
+
+	
+	$c4_nonpuls hide
+	$c4_nonpuls solid
+	$c4_nonpuls2 hide
+	$c4_nonpuls2 solid
+
+
+	level waittill spawn
+
+	
+	thread blow_up_fence
+	thread blow_up_wall
+
+	
+	level waittill roundstart
+
+end
+
+//-----------------------------------------------------------------------------
+
+blow_up_fence:
+
+$fencetrigger waittill trigger
+	
+iprintlnbold "[Sewer Entrance] explosives planted!"
+$c4_nonpuls playsound plantbomb1		
+$c4_puls remove
+$c4_nonpuls show		
+wait 10
+$explo_dirt anim start
+$explo_debris anim start
+radiusdamage $explo_origin 256 384
+wait .3
+$fence remove
+$fencetrigger remove		
+$c4_nonpuls remove	
+iprintlnbold "[Sewer Entrance] explosives exploded!"
+end	
+
+goto blow_up_fence
+
+
+//-----------------------------------------------------------------------------
+
+blow_up_wall:
+
+$walltrigger waittill trigger
+	
+iprintlnbold "[Sewerwall] explosives planted!"
+$c4_nonpuls2 playsound plantbomb1		
+$c4_puls2 remove
+$c4_nonpuls2 show		
+wait 10
+$explo2_dirt anim start
+$explo2_debris anim start
+radiusdamage $explo2_origin 256 384
+wait .3
+$wall remove
+$walltrigger remove		
+$c4_nonpuls2 remove	
+iprintlnbold "[Sewerwall] explosives exploded!"
+end		
+
+goto blow_up_wall
+
+end

@@ -1,0 +1,46 @@
+menu "dm/ice_arena2" 640 481 NONE 0
+bgcolor 0 0 0 1 
+borderstyle NONE
+bgfill 0 0 0 1 
+fullscreen 1
+//vidmode 3
+//fadein 0.5
+virtualres 1
+postinclude ui/loadingbar.txt
+
+}
+resource
+Label
+{
+name "Default"
+rect 0 0 640 480
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 1.00 1.00 1.00 0.00
+borderstyle "NONE"
+shader "ice_arena2"
+}
+resource
+Label
+{
+title ""
+name "Default"
+rect 72 3 496 20
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "NONE"
+font facfont-20
+}
+
+resource
+Label
+{
+title "PKM 2007"
+name "Default"
+rect 72 20 496 16
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "NONE"
+font verdana-12
+}
+
+end.

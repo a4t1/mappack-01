@@ -1,0 +1,20 @@
+TIKI
+setup
+{
+	scale 1.500000			// Set default scale to 16/30.5 since world is in 16 units per foot and model is in cm's
+	path models/caskami/fork
+	skelmodel fork.skb
+      surface body shader fork_body
+      surface panel shader fork_panel01_12
+      surface crane04 shader fork_crane04
+      surface fl_gate shader fork_fl_gate
+      surface fl_lift shader fork_fl_lift
+}
+
+animations
+{
+	idle     fork.skc
+}
+
+/*QUAKED caskami_fork (0.5 0.0 0.5) (-101 -24 -0) (45 24 102)
+*/

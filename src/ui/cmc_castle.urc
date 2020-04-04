@@ -1,0 +1,19 @@
+menu "dm/cmc_castle" 640 480 NONE 0
+bgcolor 0 0 0 1 
+borderstyle NONE
+bgfill 0 0 0 1 
+fullscreen 1
+virtualres 1
+postinclude ui/loadingbar.txt
+
+resource
+Label
+{
+name "Default"
+rect 0 0 640 480
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "NONE"
+shader "textures/loading/cmc_castle"
+}
+end.

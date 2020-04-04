@@ -1,0 +1,36 @@
+menu "" 640 481 NONE 1
+
+resource
+Label
+{
+name "train_to_hell"
+rect 0 0 640 480
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.50 0.50 0.50 0.00
+borderstyle "NONE"
+shader "train_to_hell"
+}
+resource
+Label
+{
+name "loadingbar"
+rect 194 456 252 8
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.50 0.50 0.50 0.00
+borderstyle "NONE"
+linkcvar "loadingbar"
+statbar horizontal 0 1
+statbar_tileshader textures/loadingbar/loadingbar
+
+}
+resource
+Label
+{
+name "loadingbar_border"
+rect 192 452 256 16
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.50 0.50 0.50 0.00
+borderstyle "NONE"
+shader "textures/mohmenu/loadingbar_border"
+}
+end.

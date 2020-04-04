@@ -1,0 +1,274 @@
+// STALINGRAD 2 Full Version
+// ARCHITECTURE: ZIED, POWZER, MPowell1944
+// SCRIPTING: POWZER, MPowell1944
+
+main:
+
+// set scoreboard messages
+setcvar "g_obj_alliedtext1" "Stalingrad 2 (Full)"
+setcvar "g_obj_alliedtext2" ""
+setcvar "g_obj_alliedtext3" "-MPowell1944-"
+setcvar "g_obj_axistext1" ""
+setcvar "g_obj_axistext2" "*Special Thanks to"
+setcvar "g_obj_axistext3" "GenSwat1944*"
+
+setcvar "g_scoreboardpic" "stalingrad2-2"
+
+// Initializes Round-Based Thread
+
+	// call additional stuff for playing this map round based is needed
+	if(level.roundbased)
+		thread roundbasedthread
+
+// Initializes PreSpawn Actions
+
+	level waittill prespawn
+	
+	//*** Precache Dm Stuff
+	exec global/DMprecache.scr
+
+	level.script = maps/dm/stalingrad-2.scr
+	exec global/ambient.scr stalingrad-2
+	exec global/hurt.scr::hurt
+	
+// Initializes Spawn Actions
+
+	level waittill spawn
+
+// Fancy Fade-in Effect
+
+	fadein 7 0 0 0 1
+	wait 7
+
+	thread fans
+	thread sounds
+
+end
+
+// Activates Ceiling Fans
+
+fans:
+
+	thread fan1
+	thread fan2
+	thread fan3
+	thread fan4
+	thread fan5
+	thread fan6
+	thread fan7
+	thread fan8
+
+end
+
+fan1:
+
+	$blade1 bind $fan1
+	$blade1tip bind $blade1
+	$blade2 bind $fan1
+	$blade2tip bind $blade2
+	$blade3 bind $fan1
+	$blade3tip bind $blade3 
+	$blade4 bind $fan1
+	$blade4tip bind $blade4
+	$fan1 rotatey 325
+
+end
+
+fan2:
+
+	$blade5 bind $fan2
+	$blade5tip bind $blade5
+	$blade6 bind $fan2
+	$blade6tip bind $blade6
+	$blade7 bind $fan2
+	$blade7tip bind $blade7 
+	$blade8 bind $fan2
+	$blade8tip bind $blade8
+	$fan2 rotatey 325
+
+end
+
+fan3:
+
+	$blade9 bind $fan3
+	$blade9tip bind $blade9
+	$blade10 bind $fan3
+	$blade10tip bind $blade10
+	$blade11 bind $fan3
+	$blade11tip bind $blade11 
+	$blade12 bind $fan3
+	$blade12tip bind $blade12
+	$fan3 rotatey 325
+
+end
+
+fan4:
+
+	$blade13 bind $fan4
+	$blade13tip bind $blade13
+	$blade14 bind $fan4
+	$blade14tip bind $blade14
+	$blade15 bind $fan4
+	$blade15tip bind $blade15 
+	$blade16 bind $fan4
+	$blade16tip bind $blade16
+	$fan4 rotatey 325
+
+end
+
+fan5:
+
+	$blade17 bind $fan5
+	$blade17tip bind $blade17
+	$blade18 bind $fan5
+	$blade18tip bind $blade18
+	$blade19 bind $fan5
+	$blade19tip bind $blade19 
+	$blade20 bind $fan5
+	$blade20tip bind $blade20
+	$fan5 rotatey 325
+
+end
+
+fan6:
+
+	$blade21 bind $fan6
+	$blade21tip bind $blade21
+	$blade22 bind $fan6
+	$blade22tip bind $blade22
+	$blade23 bind $fan6
+	$blade23tip bind $blade23 
+	$blade24 bind $fan6
+	$blade24tip bind $blade24
+	$fan6 rotatey 325
+
+end
+
+fan7:
+
+	$blade25 bind $fan7
+	$blade25tip bind $blade25
+	$blade26 bind $fan7
+	$blade26tip bind $blade26
+	$blade27 bind $fan7
+	$blade27tip bind $blade27 
+	$blade28 bind $fan7
+	$blade28tip bind $blade28
+	$fan7 rotatey 325	
+
+end
+
+fan8:
+
+	$blade29 bind $fan8
+	$blade29tip bind $blade29
+	$blade30 bind $fan8
+	$blade30tip bind $blade30
+	$blade31 bind $fan8
+	$blade31tip bind $blade31 
+	$blade32 bind $fan8
+	$blade32tip bind $blade32
+	$fan8 rotatey 325
+
+end
+
+// Activates Localized Sounds
+
+sounds:
+
+	local.fan1 = spawn script_model
+	local.fan1 model "fx/fan.tik"
+	local.fan1.origin = ( 824 968 680)
+
+	local.fan2 = spawn script_model
+	local.fan2 model "fx/fan.tik"
+	local.fan2.origin = ( 824 968 488)
+
+	local.fan3 = spawn script_model
+	local.fan3 model "fx/fan.tik"
+	local.fan3.origin = ( 824 968 224)
+
+	local.fan4 = spawn script_model
+	local.fan4 model "fx/fan.tik"
+	local.fan4.origin = ( -144 936 216)
+
+	local.fan5 = spawn script_model
+	local.fan5 model "fx/fan.tik"
+	local.fan5.origin = ( -144 936 632)
+
+	local.fan6 = spawn script_model
+	local.fan6 model "fx/fan.tik"
+	local.fan6.origin = ( -24 880 480)
+
+	local.fan7 = spawn script_model
+	local.fan7 model "fx/fan.tik"
+	local.fan7.origin = ( 80 -384 456)
+
+	local.fan8 = spawn script_model
+	local.fan8 model "fx/fan.tik"
+	local.fan8.origin = ( 80 -384 256)
+
+	local.cricket = spawn script_model
+	local.cricket model "fx/cricket.tik"
+	local.cricket.origin = ( -704 -152 -104)
+
+	local.cricket2 = spawn script_model
+	local.cricket2 model "fx/cricket.tik"
+	local.cricket2.origin = ( -632 1096 -96)
+
+	local.radio = spawn script_model
+	local.radio model "fx/radio.tik"
+	local.radio.origin = ( -61 -296 93)
+
+	local.clock = spawn script_model
+	local.clock model "fx/clock.tik"
+	local.clock.origin = ( -961 529 111)
+
+end
+
+// Activates a SetThread
+
+nosecret:
+
+	$secret remove
+	iprintlnbold_noloc (loc_convert_string "A Secret Room Has Been Found!")
+
+end
+
+//-----------------------------------------------------------------------------
+
+// Activates Round-Based Thread
+
+roundbasedthread:
+
+	// Can specify different scoreboard messages for round based games here.
+
+	level waitTill prespawn
+
+	level waittill spawn
+
+	// set the parameters for this round based match
+	level.dmrespawning = 0 // 1 or 0
+	level.dmroundlimit = 5 // round time limit in minutes
+	level.clockside = kills // set to axis, allies, kills, or draw
+
+	level waittill roundstart
+
+end
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

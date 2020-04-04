@@ -1,0 +1,22 @@
+// MPowell1944's Hurt Script (Modified version of the MINEFIELD script)
+// NOTE: when a death occurs, there is no text displayed notifying other players of the occuring death.
+// if i had set it to run text when a death occurs, then the text would indicate the player's death occured because of an explosion
+// and that would not be correct for the type of death i am seeking with this script.
+
+hurt:
+
+hurt local.index
+
+$hurt[local.index] waittill trigger
+
+local.dumbass = parm.other
+
+if (local.dumbass istouching $hurt[local.index] == 1)
+
+{
+	local.dumbass exec global/bullethit.scr (5 6 7) 5 5 20
+}
+
+goto hurt
+
+end

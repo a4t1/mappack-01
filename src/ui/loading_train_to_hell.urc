@@ -1,0 +1,36 @@
+menu "dm/train_to_hell" 640 481 NONE 0
+
+bgcolor 0 0 0 1 
+borderstyle NONE
+bgfill 0 0 0 1 
+fullscreen 1
+//vidmode 3
+//fadein 2
+virtualres 1
+postinclude ui/train_to_hell.txt
+
+resource
+Label
+{
+name "Default"
+rect 248 0 256 256 // 0 0 640 481
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.50 0.50 0.50 0.50
+borderstyle "NONE"
+shader "train_to_hell"
+}
+
+resource
+Label
+{
+title "Train to Hell"
+name "Default"
+rect 72 408 496 32
+fgcolor 1.00 1.00 1.00 1.00
+bgcolor 0.00 0.00 0.00 0.00
+borderstyle "RAISED"
+font facfont-20
+//font courier16
+}
+
+end.

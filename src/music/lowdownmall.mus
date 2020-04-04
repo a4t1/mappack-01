@@ -1,0 +1,14 @@
+path sound/amb
+
+normal ugots2chill.wav // Plays over entire level <---Name of file
+
+!normal volume 1
+!normal loop
+
+//Music Recommendation
+//mus_09a_action.mp3
+
+//Just in case we can get multiple ambiences working...
+//normal Amb_M5_BridgeInt.mp3 // Player Start
+//!normal volume 1
+//!normal loop
